@@ -1,0 +1,36 @@
+==35616== Memcheck, a memory error detector
+==35616== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==35616== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==35616== Command: ./my_av
+==35616== Parent PID: 35615
+==35616== 
+==35616== 
+==35616== HEAP SUMMARY:
+==35616==     in use at exit: 472,472 bytes in 1,001 blocks
+==35616==   total heap usage: 21,020 allocs, 20,019 frees, 40,004,619 bytes allocated
+==35616== 
+==35616== 472 bytes in 1 blocks are still reachable in loss record 1 of 2
+==35616==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==35616==    by 0x48EC6CD: __fopen_internal (iofopen.c:65)
+==35616==    by 0x48EC6CD: fopen@@GLIBC_2.2.5 (iofopen.c:86)
+==35616==    by 0x10AA83: task3 (my_av.c:595)
+==35616==    by 0x10ADE1: main (my_av.c:724)
+==35616== 
+==35616== 472,000 bytes in 1,000 blocks are still reachable in loss record 2 of 2
+==35616==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==35616==    by 0x48EC6CD: __fopen_internal (iofopen.c:65)
+==35616==    by 0x48EC6CD: fopen@@GLIBC_2.2.5 (iofopen.c:86)
+==35616==    by 0x109E50: verifbaza (my_av.c:252)
+==35616==    by 0x10A291: soltask1 (my_av.c:363)
+==35616==    by 0x10A35E: task1 (my_av.c:384)
+==35616==    by 0x10ADD7: main (my_av.c:722)
+==35616== 
+==35616== LEAK SUMMARY:
+==35616==    definitely lost: 0 bytes in 0 blocks
+==35616==    indirectly lost: 0 bytes in 0 blocks
+==35616==      possibly lost: 0 bytes in 0 blocks
+==35616==    still reachable: 472,472 bytes in 1,001 blocks
+==35616==         suppressed: 0 bytes in 0 blocks
+==35616== 
+==35616== For lists of detected and suppressed errors, rerun with: -s
+==35616== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

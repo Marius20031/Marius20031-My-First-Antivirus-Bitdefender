@@ -1,0 +1,59 @@
+---Sursa in lucru, 1st submit 30/12/2022--
+---Sursa in lucru, 3rd submit 06/01/2023-- sursa test
+---Sursa in lucru, 4th submit 07/01/2023-- sursa test
+---Sursa in lucru,  5th submit 10/01/2023-- sursa test am si py
+---Sursa in lucru,  6th submit 10/01/2023-- sursa test am si py AM UITAT SA DECOMENTEZ CEVA IN COD :/
+---Sursa in lucru,  7th submit 12/01/2023-- commentat task1 in py pentru teste private, focus on task1 on C :/
+---Sursa in lucru,  8th submit 14/01/2023-- rip teste private, nu apar in clasament
+---Sursa in lucru,  9th submit 15/01/2023-- echilibrare dintre codul in py si cel in C + euristici noi in C task1
+---Sursa in lucru,  10th submit 15/01/2023-- ^^ same + coding styke 100/100
+---Sursa in lucru,  11th submit 16/01/2023-- euristici noi in C
+---Sursa in lucru,  12th submit 16/01/2023-- codying style check
+---Sursa in lucru,  13th submit 16/01/2023-- euristici noi
+---Sursa in lucru,  14th submit 17/01/2023-- ups -11 AM UITAT UN FISIER
+---Sursa in lucru,  15th submit 17/01/2023-- putin modificat ordinea euristicilor
+---Sursa in lucru,  16th submit 18/01/2023-- euristici noi
+---Sursa in lucru,  16th submit 18/01/2023--  update py
+---  Ultima sursa,  17th submit 19/01/2023-- ggwp
+
+Task1:
+-> folosim strtok pentru a delimita link.urile delimitatorul fiin caracterul "/"
+in programul principal citesc cu buffer fiecare linie din fisierul de intrare
+si pentru fiecare linie apelez suprogramele urmatoare:
+apelez task1 care apeleaza subprogramul verifterminator care verifica:
+	verifica daca exista deja .com si mai are un domeniu adica un punct dupa e malitios de ex : .com.ru 
+	daca contine mod_ e considerat malitios
+	url.ul sa se terminie in : .js .bin .exe .doc Mozi.m .i si le identifica la malitioase
+	si sa verifice daca apare bin dupa prima '/' este considerat ca malitios
+	daca continie numere ca domeniu e considerat malitions (mai exact ip)
+	daca se termina in .html e considerat safe
+	daca contine ' nu e considerat link si e safe
+	de asemenea si daca url.ul nu contine '/' e considerat malitios
+verifbaza:
+	verifica daca url.ul se afla in baza de data data de cei care au facut tema
+^^ toate acestea se apeleaza cu parametrii (char *buffer si *ok) ok care reprezinta ce afisam 1/0 si buffer url.ul
+actual prelucrat
+	
+Task2:
+-> folosim strtok pentru a delimita link.urile delimitatorul fiin caracterul ","
+in programul principal citesc cu buffer fiecare linie din fisierul de intrare
+tinem cont ca in prima linie din fisier citim categoriile dupa citim traficul
+
+ca in task1 avem soltask1 unde apelam verifdowdurat 
+in mare copiem ce am facut la task1, modificarile fiind:
+luam euristicile date in enunt in care daca are timpul mai mare de o secunda
+si are payload.ul diferit de 0 e malitios, ne dam seama cu strtok unde suntem si comparam primele 8
+caractere din timp (care reprezinta fix ora minut secunda)
+alta euristica este legata de crypto miner, observam ca datele:
+"1,0,8,0,0,0,0,40.0,0.0,0.0,0.0,40.0" reprezinta un cryptominer
+asa ca am verificat daca timpul de traf de date este de 0 secunde si flow_pkts_payload.avg >39
+atunci am considerat ca e cryptominer
+de asemenea am considerat ca orice trafic care are
+response_ip.ul "184.0.48.169" sau "255.255.255.255" nu este malitios
+"184.0.48.255" e malitios, "184.0.48.171" e safe
+
+in general in python am incercat sa fac ce am facut si in C dar cu cateva adaugari in plus
+---MODIFICARI: am observat ca la task2 cand am facut in python, daca ma leg de response port, mai ales de:
+#safe: 3306 50443 1515
+#malitios: 443 1947 137
+asa ca am verificat prima data portul si apoi ip.urile din codul sursa trecut din C si a dat 0.99 acum testez pe teste private
